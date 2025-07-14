@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 
-interface Item {
+export interface Item {
   id: number;
+  item_id: string;
   item: string;
   rarity: string;
   price: number;
+  quantity: number;
+  [key: string]: any;
 }
 
 interface ApiResponse {
@@ -36,7 +39,8 @@ export default function Home() {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.item} — {item.rarity} — {item.price} gold
+            <img src={item.iconUrl} alt="" /> {item.item} — {item.rarity} —{" "}
+            {item.price} gold
           </li>
         ))}
       </ul>
