@@ -15,6 +15,7 @@ export default function Home() {
   } = useQuery({
     queryKey: ["market-items"],
     queryFn: fetchItems,
+    refetchOnWindowFocus: false,
   });
 
   console.log(items);
