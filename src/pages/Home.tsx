@@ -1,35 +1,26 @@
-import { useEffect, useState } from "react";
 import api from "../api/axios";
+import type { Item, ApiResponse } from "../types/item";
+import { useQuery } from "@tanstack/react-query";
 
-export interface Item {
-  id: number;
-  item_id: string;
-  item: string;
-  rarity: string;
-  price: number;
-  quantity: number;
-  [key: string]: any;
-}
-
-interface ApiResponse {
-  body: Item[];
-}
+const fetchItems = async (): Promise<Item[]> => {
+  const res = await api.get<ApiResponse>("/test");
+  return res.data.body;
+};
 
 export default function Home() {
-  const [items, setItems] = useState<Item[]>([]);
-  const [error, setError] = useState("");
+  const {
+    data: items,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["market-items"],
+    queryFn: fetchItems,
+  });
 
   console.log(items);
 
-  useEffect(() => {
-    api
-      .get<ApiResponse>("/test")
-      .then((res) => setItems(res.data.body))
-      .catch((err) => {
-        console.error(err);
-        setError("Failed to load data");
-      });
-  }, []);
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Failed to load data</p>;
 
   if (error) return <p>{error}</p>;
 
@@ -37,7 +28,7 @@ export default function Home() {
     <div>
       <h1>Marketplace Items</h1>
       <ul>
-        {items.map((item) => (
+        {items?.map((item) => (
           <li key={item.id}>
             <img src={item.iconUrl} alt="" /> {item.item} — {item.rarity} —{" "}
             {item.price} gold
