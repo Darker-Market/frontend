@@ -29,12 +29,16 @@ export default function Home() {
     <div>
       <h1>Marketplace Items</h1>
       <ul>
-        {items?.map((item) => (
-          <li key={item.id}>
-            <img src={item.iconUrl} alt="" /> {item.item} — {item.rarity} —{" "}
-            {item.price} gold
-          </li>
-        ))}
+        {items?.map((item) => {
+          const slotInfo = item.slot_type ? `${item.slot_type}` : "-";
+
+          return (
+            <li key={item.id}>
+              <img src={item.iconUrl} alt="" /> {item.item} | {item.rarity} |
+              {slotInfo} | {item.type} | {item.price} gold
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
