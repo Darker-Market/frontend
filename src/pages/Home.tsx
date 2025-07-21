@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Marketplace Items</h1>
+      <h1 className="text-white">Marketplace Items</h1>
       <ul>
         {items?.map((item) => {
           const slotInfo = item.slot_type ? `${item.slot_type}` : "-";
@@ -35,7 +35,7 @@ export default function Home() {
           return (
             <li key={item.id}>
               <img src={item.iconUrl} alt="" />{" "}
-              <div className="font-bold underline bg-amber-600">
+              <div className="text-white customBorder">
                 {item.item} | {item.rarity} | {slotInfo} | {item.type} |{" "}
                 {item.price} gold
               </div>
