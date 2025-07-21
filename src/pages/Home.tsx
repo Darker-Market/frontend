@@ -34,8 +34,11 @@ export default function Home() {
 
           return (
             <li key={item.id}>
-              <img src={item.iconUrl} alt="" /> {item.item} | {item.rarity} |
-              {slotInfo} | {item.type} | {item.price} gold
+              <img src={item.iconUrl} alt="" />{" "}
+              <div className="font-bold underline bg-amber-600">
+                {item.item} | {item.rarity} | {slotInfo} | {item.type} |{" "}
+                {item.price} gold
+              </div>
             </li>
           );
         })}
