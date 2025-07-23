@@ -76,6 +76,13 @@ body {
   padding: 1rem;
 }
 
+.bg-custom-button {
+  background-image: url("/images/button.png");
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* .poorGradient {
   background: linear-gradient(
     to right,
