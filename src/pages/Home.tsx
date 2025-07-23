@@ -1,7 +1,7 @@
 import api from "../api/axios";
 import type { Item, ApiResponse } from "../types/item";
 import { useQuery } from "@tanstack/react-query";
-import ListItem from "../components/listItem";
+import ListItem from "../components/ListItem";
 
 const fetchItems = async (): Promise<Item[]> => {
   const res = await api.get<ApiResponse>("/test");
