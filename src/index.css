@@ -8,11 +8,22 @@
   src: url("fonts/SaintKDG.ttf") format("truetype");
 }
 
+@theme {
+  --color-poor: rgba(100, 100, 100);
+  --color-common: rgb(222, 222, 222);
+  --color-uncommon: rgb(98, 190, 11);
+  --color-rare: rgb(74, 155, 209);
+  --color-epic: rgb(173, 90, 255);
+  --color-legendary: rgb(247, 162, 45);
+  --color-unique: rgb(227, 216, 140);
+  --color-artifact: rgb(255, 30, 30);
+}
+
 :root {
   --gold: #beb060;
 
   /* Rarity colours */
-  --color-poor: rgba(100, 100, 100, 0.1);
+  --color-poor: rgba(100, 100, 100);
   --color-common: rgb(222, 222, 222);
   --color-uncommon: rgb(98, 190, 11);
   --color-rare: rgb(74, 155, 209);

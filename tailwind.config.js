@@ -9,4 +9,14 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    "text-legendary",
+    "text-rare",
+    "text-uncommon",
+    "text-common",
+    "text-epic",
+    "text-unique",
+    "text-artifact",
+    "text-poor",
+  ],
 };
