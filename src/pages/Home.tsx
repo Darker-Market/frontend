@@ -13,6 +13,8 @@ export default function Home() {
     data: items,
     isLoading,
     error,
+    refetch,
+    isFetching,
   } = useQuery({
     queryKey: ["market-items"],
     queryFn: fetchItems,
@@ -29,18 +31,15 @@ export default function Home() {
   return (
     <div>
       <h1 className="text-white">Marketplace Items</h1>
+      <button
+        className="bg-custom-button  px-4 py-2 text-white rounded hover:opacity-80 transition"
+        onClick={() => refetch()}
+        disabled={isFetching}>
+        {isFetching ? "Refreshing..." : "Refresh"}
+      </button>
       <ul>
         {items?.map((item) => {
-          return (
-            <ListItem item={item} />
-            // <li key={item.id}>
-            //   <img src={item.iconUrl} alt="" />{" "}
-            //   <div className="text-white customBorder">
-            //     {item.item} | {item.rarity} | {slotInfo} | {item.type} |{" "}
-            //     {item.price} gold
-            //   </div>
-            // </li>
-          );
+          return <ListItem item={item} />;
         })}
       </ul>
     </div>
