@@ -1,6 +1,7 @@
 import api from "../api/axios";
 import type { Item, ApiResponse } from "../types/item";
 import { useQuery } from "@tanstack/react-query";
+import ListItem from "../components/listItem";
 
 const fetchItems = async (): Promise<Item[]> => {
   const res = await api.get<ApiResponse>("/test");
@@ -30,16 +31,15 @@ export default function Home() {
       <h1 className="text-white">Marketplace Items</h1>
       <ul>
         {items?.map((item) => {
-          const slotInfo = item.slot_type ? `${item.slot_type}` : "-";
-
           return (
-            <li key={item.id}>
-              <img src={item.iconUrl} alt="" />{" "}
-              <div className="text-white customBorder">
-                {item.item} | {item.rarity} | {slotInfo} | {item.type} |{" "}
-                {item.price} gold
-              </div>
-            </li>
+            <ListItem item={item} />
+            // <li key={item.id}>
+            //   <img src={item.iconUrl} alt="" />{" "}
+            //   <div className="text-white customBorder">
+            //     {item.item} | {item.rarity} | {slotInfo} | {item.type} |{" "}
+            //     {item.price} gold
+            //   </div>
+            // </li>
           );
         })}
       </ul>
