@@ -23,7 +23,7 @@ export default function ListItem({ item }: ListItemProps) {
       </div>
       <div>{slotInfo} </div>
       <div>{item.type} </div>
-      <div>expire time here</div>
+      <div>{item.expires_in}</div>
       <div>{`${item.price} ${quantityInfo}`} gold</div>
     </li>
   );
