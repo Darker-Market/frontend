@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="text-white">Marketplace Items</h1>
+      <h1 className="text-white text-center">Marketplace Items</h1>
       <button
         className="bg-custom-button  px-4 py-2 text-white rounded hover:opacity-80 transition"
         onClick={() => refetch()}
